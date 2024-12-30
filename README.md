@@ -89,3 +89,19 @@ EXPOSE 80
 
 # NGINX by default runs as a daemon, no need for an ENTRYPOINT since it's already configured in NGINX's base image
 
+
+
+sudo apt update
+sudo apt-get install docker.io -y
+sudo apt install git -y
+sudo apt install nano -y
+git clone <Your_Repo_URL>
+cd <Your_Project_Folder>
+nano Dockerfile
+FROM tomcat:9-jdk11
+FROM tomcat:9-jdk11
+COPY target/*.war /usr/local/tomcat/webapps/
+FROM tomcat:9-jdk21
+COPY target/*.war /usr/local/tomcat/webapps/
+sudo docker build -t maven-web-project .
+sudo docker run -d -p 9090:8080 maven-web-project
